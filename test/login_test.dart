@@ -1,6 +1,6 @@
 import 'package:flutter_redux_starter/keys.dart';
-import 'package:flutter_driver/flutter_driver.dart';
-import 'package:test/test.dart'  hide find;
+import 'package:flutter_driver/flutter_driver.dart' ;
+import 'package:flutter_test/flutter_test.dart' hide find;
 
 void main() {
   group('LOGIN TEST', () {
