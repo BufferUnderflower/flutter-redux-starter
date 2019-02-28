@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:core';
 import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
-import 'package:eztimate/data/models/models.dart';
-import 'package:eztimate/data/models/serializers.dart';
-import 'package:eztimate/redux/auth/auth_state.dart';
-import 'package:eztimate/data/models/stub_model.dart';
-import 'package:eztimate/data/web_client.dart';
-import 'package:eztimate/constants.dart';
+import 'package:fllutter_redux_starter/data/models/models.dart';
+import 'package:fllutter_redux_starter/data/models/serializers.dart';
+import 'package:fllutter_redux_starter/redux/auth/auth_state.dart';
+import 'package:fllutter_redux_starter/data/models/stub_model.dart';
+import 'package:fllutter_redux_starter/data/web_client.dart';
+import 'package:fllutter_redux_starter/constants.dart';
 
 class StubRepository {
   final WebClient webClient;
