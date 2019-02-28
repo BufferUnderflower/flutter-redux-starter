@@ -6,14 +6,6 @@ part of 'models.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line
-// ignore_for_file: annotate_overrides
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_returning_this
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: sort_constructors_first
-
 EntityType _$typeValueOf(String name) {
   switch (name) {
     default:
@@ -54,12 +46,12 @@ class _$EntityTypeSerializer implements PrimitiveSerializer<EntityType> {
 
   @override
   Object serialize(Serializers serializers, EntityType object,
-          {FullType specifiedType: FullType.unspecified}) =>
+          {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
   EntityType deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType: FullType.unspecified}) =>
+          {FullType specifiedType = FullType.unspecified}) =>
       EntityType.valueOf(serialized as String);
 }
 
@@ -71,12 +63,12 @@ class _$EntityActionSerializer implements PrimitiveSerializer<EntityAction> {
 
   @override
   Object serialize(Serializers serializers, EntityAction object,
-          {FullType specifiedType: FullType.unspecified}) =>
+          {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
   EntityAction deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType: FullType.unspecified}) =>
+          {FullType specifiedType = FullType.unspecified}) =>
       EntityAction.valueOf(serialized as String);
 }
 
@@ -88,7 +80,7 @@ class _$LoginResponseSerializer implements StructuredSerializer<LoginResponse> {
 
   @override
   Iterable serialize(Serializers serializers, LoginResponse object,
-      {FullType specifiedType: FullType.unspecified}) {
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'data',
       serializers.serialize(object.data,
@@ -100,7 +92,7 @@ class _$LoginResponseSerializer implements StructuredSerializer<LoginResponse> {
 
   @override
   LoginResponse deserialize(Serializers serializers, Iterable serialized,
-      {FullType specifiedType: FullType.unspecified}) {
+      {FullType specifiedType = FullType.unspecified}) {
     final result = new LoginResponseBuilder();
 
     final iterator = serialized.iterator;
@@ -128,8 +120,9 @@ class _$LoginResponse extends LoginResponse {
       (new LoginResponseBuilder()..update(updates)).build();
 
   _$LoginResponse._({this.data}) : super._() {
-    if (data == null)
+    if (data == null) {
       throw new BuiltValueNullFieldError('LoginResponse', 'data');
+    }
   }
 
   @override
@@ -140,10 +133,9 @@ class _$LoginResponse extends LoginResponse {
   LoginResponseBuilder toBuilder() => new LoginResponseBuilder()..replace(this);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    if (other is! LoginResponse) return false;
-    return data == other.data;
+    return other is LoginResponse && data == other.data;
   }
 
   @override
@@ -178,7 +170,9 @@ class LoginResponseBuilder
 
   @override
   void replace(LoginResponse other) {
-    if (other == null) throw new ArgumentError.notNull('other');
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
     _$v = other as _$LoginResponse;
   }
 
@@ -194,3 +188,5 @@ class LoginResponseBuilder
     return _$result;
   }
 }
+
+// ignore_for_file: always_put_control_body_on_new_line,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

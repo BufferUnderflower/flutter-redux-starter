@@ -6,14 +6,6 @@ part of 'list_ui_state.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-// ignore_for_file: always_put_control_body_on_new_line
-// ignore_for_file: annotate_overrides
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_returning_this
-// ignore_for_file: omit_local_variable_types
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: sort_constructors_first
-
 Serializer<ListUIState> _$listUIStateSerializer = new _$ListUIStateSerializer();
 
 class _$ListUIStateSerializer implements StructuredSerializer<ListUIState> {
@@ -24,7 +16,7 @@ class _$ListUIStateSerializer implements StructuredSerializer<ListUIState> {
 
   @override
   Iterable serialize(Serializers serializers, ListUIState object,
-      {FullType specifiedType: FullType.unspecified}) {
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'sortField',
       serializers.serialize(object.sortField,
@@ -45,7 +37,7 @@ class _$ListUIStateSerializer implements StructuredSerializer<ListUIState> {
 
   @override
   ListUIState deserialize(Serializers serializers, Iterable serialized,
-      {FullType specifiedType: FullType.unspecified}) {
+      {FullType specifiedType = FullType.unspecified}) {
     final result = new ListUIStateBuilder();
 
     final iterator = serialized.iterator;
@@ -86,10 +78,12 @@ class _$ListUIState extends ListUIState {
 
   _$ListUIState._({this.search, this.sortField, this.sortAscending})
       : super._() {
-    if (sortField == null)
+    if (sortField == null) {
       throw new BuiltValueNullFieldError('ListUIState', 'sortField');
-    if (sortAscending == null)
+    }
+    if (sortAscending == null) {
       throw new BuiltValueNullFieldError('ListUIState', 'sortAscending');
+    }
   }
 
   @override
@@ -100,10 +94,10 @@ class _$ListUIState extends ListUIState {
   ListUIStateBuilder toBuilder() => new ListUIStateBuilder()..replace(this);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    if (other is! ListUIState) return false;
-    return search == other.search &&
+    return other is ListUIState &&
+        search == other.search &&
         sortField == other.sortField &&
         sortAscending == other.sortAscending;
   }
@@ -154,7 +148,9 @@ class ListUIStateBuilder implements Builder<ListUIState, ListUIStateBuilder> {
 
   @override
   void replace(ListUIState other) {
-    if (other == null) throw new ArgumentError.notNull('other');
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
     _$v = other as _$ListUIState;
   }
 
@@ -172,3 +168,5 @@ class ListUIStateBuilder implements Builder<ListUIState, ListUIStateBuilder> {
     return _$result;
   }
 }
+
+// ignore_for_file: always_put_control_body_on_new_line,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
